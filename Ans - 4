@@ -1,0 +1,24 @@
+To maximize the sum of the minimum elements in pairs from the given integer array nums, you can sort the array and pair adjacent elements. The sum of the smaller elements in each pair will be the maximum possible sum. Here's the solution in JavaScript:
+
+javascript
+Copy code
+function arrayPairSum(nums) {
+  nums.sort((a, b) => a - b);
+  let sum = 0;
+  for (let i = 0; i < nums.length; i += 2) {
+    sum += nums[i];
+  }
+  return sum;
+}
+
+// Test case
+const nums = [1, 4, 3, 2];
+const maxSum = arrayPairSum(nums);
+console.log(maxSum); // Output: 4
+The arrayPairSum function takes an integer array nums as input. It first sorts the array in ascending order using the sort method and a custom comparison function (a, b) => a - b.
+
+Then, it initializes a variable sum to keep track of the maximum sum. It iterates over the array with a step size of 2 using the variable i and adds the element at nums[i] to the sum. Since the array is sorted, the smallest elements will be at even indices.
+
+Finally, it returns the maximum sum.
+
+In the given example, the output will be 4 as the maximum possible sum is achieved by pairing (1, 2) and (3, 4), resulting in a sum of 1 + 3 = 4.
