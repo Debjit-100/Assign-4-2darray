@@ -1,0 +1,25 @@
+To rearrange the array nums in the given form [x1, y1, x2, y2, ..., xn, yn], you can create a new array and iterate over nums using two pointers. Here's the solution in JavaScript:
+
+javascript
+Copy code
+function shuffle(nums, n) {
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    result.push(nums[i]);
+    result.push(nums[i + n]);
+  }
+  return result;
+}
+
+// Test case
+const nums = [2, 5, 1, 3, 4, 7];
+const n = 3;
+const shuffledArray = shuffle(nums, n);
+console.log(shuffledArray); // Output: [2, 3, 5, 4, 1, 7]
+The shuffle function takes an array nums and an integer n as input. It initializes an empty array result to store the rearranged elements.
+
+It then iterates over nums from index 0 to n - 1. In each iteration, it pushes nums[i] (the xi element) and nums[i + n] (the yi element) to the result array.
+
+Finally, it returns the result array that now contains the elements rearranged in the required form.
+
+In the given example, the output will be [2, 3, 5, 4, 1, 7] as the xi elements are [2, 5, 1] and the yi elements are [3, 4, 7]. The function creates a new array with elements in the order [2, 3, 5, 4, 1, 7], which matches the desired form.
