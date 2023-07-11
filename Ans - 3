@@ -1,0 +1,31 @@
+function transpose(matrix) {
+  const rows = matrix.length;
+  const columns = matrix[0].length;
+
+  // Create a new array with switched rows and columns
+  const transposed = [];
+  for (let j = 0; j < columns; j++) {
+    transposed[j] = [];
+    for (let i = 0; i < rows; i++) {
+      transposed[j][i] = matrix[i][j];
+    }
+  }
+
+  return transposed;
+}
+
+// Test case
+const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+const transposedMatrix = transpose(matrix);
+console.log(transposedMatrix); // Output: [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+The transpose function takes a 2D integer array matrix as input. It first determines the number of rows and columns in the matrix.
+
+Then, it creates a new array transposed to store the transposed matrix. It iterates over the columns of the original matrix using the variable j, and for each column, it iterates over the rows using the variable i. It assigns the element at matrix[i][j] to transposed[j][i], effectively switching the rows and columns.
+
+Finally, it returns the transposed matrix.
+
+In the given example, the output will be [[1, 4, 7], [2, 5, 8], [3, 6, 9]] as the original matrix is transposed over its main diagonal, resulting in switched row and column indices.
