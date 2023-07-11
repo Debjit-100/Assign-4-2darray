@@ -1,0 +1,21 @@
+To square each number in the given sorted integer array nums and return the resulting array in non-decreasing order, you can iterate over the array, square each element, and then sort the resulting array. Here's the solution in JavaScript:
+
+javascript
+Copy code
+function sortedSquares(nums) {
+  const squaredArray = nums.map((num) => num * num);
+  squaredArray.sort((a, b) => a - b);
+  return squaredArray;
+}
+
+// Test case
+const nums = [-4, -1, 0, 3, 10];
+const sortedSquaresArray = sortedSquares(nums);
+console.log(sortedSquaresArray); // Output: [0, 1, 9, 16, 100]
+The sortedSquares function takes an integer array nums as input. It uses the map method to create a new array squaredArray by squaring each element of nums.
+
+Then, it uses the sort method with a custom comparison function (a, b) => a - b to sort the squaredArray in non-decreasing order.
+
+Finally, it returns the squaredArray which now contains the squares of each number in nums sorted in non-decreasing order.
+
+In the given example, the output will be [0, 1, 9, 16, 100] as each number in nums is squared, resulting in [16, 1, 0, 9, 100]. After sorting, the array becomes [0, 1, 9, 16, 100].
