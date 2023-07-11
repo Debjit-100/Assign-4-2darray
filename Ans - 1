@@ -1,0 +1,35 @@
+function findCommonElements(arr1, arr2, arr3) {
+  const result = [];
+  let i = 0; // Pointer for arr1
+  let j = 0; // Pointer for arr2
+  let k = 0; // Pointer for arr3
+
+  while (i < arr1.length && j < arr2.length && k < arr3.length) {
+    if (arr1[i] === arr2[j] && arr2[j] === arr3[k]) {
+      result.push(arr1[i]);
+      i++;
+      j++;
+      k++;
+    } else if (arr1[i] < arr2[j]) {
+      i++;
+    } else if (arr2[j] < arr3[k]) {
+      j++;
+    } else {
+      k++;
+    }
+  }
+
+  return result;
+}
+
+// Test case
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [1, 2, 5, 7, 9];
+const arr3 = [1, 3, 4, 5, 8];
+const commonElements = findCommonElements(arr1, arr2, arr3);
+console.log(commonElements); // Output: [1, 5]
+The findCommonElements function takes three sorted arrays (arr1, arr2, and arr3) as input. It initializes three pointers (i, j, and k) to the starting position of each array. The function then iterates through the arrays simultaneously.
+
+If the values at the current pointers of all three arrays are the same, it means that the integer appears in all three arrays. It is added to the result array, and all three pointers are incremented.
+
+If the values are not the same, the pointers are incremented based on the relative order of the values. The pointers are moved forward for the smaller value to catch up with the larger values in the other arrays.
